@@ -1,0 +1,756 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    scroll-behavior: smooth;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: red;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+    padding: 0 100px;
+}
+
+.content {
+    max-width: 50%;
+}
+
+.content h2 {
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.content h1 span {
+    color: red;
+}
+
+.enter-btn {
+    display: inline-block;
+    background: red;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.enter-btn:hover {
+    background: darkred;
+}
+
+.profile-img img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+/* Main Content */
+.main-content {
+    display: none;
+}
+
+/* Topic links in About Me */
+#about {
+    text-align: center;
+    padding: 50px;
+    background: #111;
+}
+
+#about h2 {
+    color: red;
+    font-size: 2rem;
+}
+/* Rectangular glowing buttons */
+.rectangle {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    background: red;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+/* Glowing Effect */
+.rectangle:hover {
+    background: darkred;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Active link glow */
+.rectangle.active {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+}
+
+/* Back to Top */
+.landing-page {
+    display: block;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 30px;
+    background: #111;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 30px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.about-description {
+    flex: 1;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #ccc;
+    min-width: 300px;
+}
+
+.about-description strong {
+    color: red;
+}
+
+.about-description em {
+    color: #f77;
+    font-style: normal;
+}
+
+.about-photo {
+    width: 250px;   /* increased from 250px */
+    height: 450px;
+    overflow: hidden;
+    border-radius: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); /* subtle glow around image */
+}
+
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+/* Section Title */
+#skills h2 {
+  font-size: 3rem;
+  color: red;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#skills h2 span {
+  color: white;
+}
+/* Screen fade animation */
+.screen {
+  min-height: 100vh;
+  padding: 50px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #111;
+  color: white;
+}
+.screen h2 {
+  font-size: 3rem;
+  color: red;
+  margin-bottom: 40px;
+}
+
+/* Show screen with fade-in */
+.screen.show {
+    display: block;
+    opacity: 1;
+}
+
+.screen.active {
+    display: block;
+}
+.screen h2 span {
+  color: white;
+}
+.skills-grid, .education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+  flex-grow: 1;
+}
+.skill-card, .edu-card {
+  background: #222;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+.skill-card i, .edu-card i {
+  font-size: 3rem;
+  color: red;
+}
+.skill-card p {
+  font-size: 1.2rem;
+}
+
+.edu-card h3 {
+  font-size: 1.5rem;
+}
+
+.edu-card p {
+  font-size: 1.1rem;
+}
+.edu-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: red;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.edu-card a:hover {
+  background: darkred;
+}
+
+/* Card hover animation */
+.skill-card:hover, .edu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+}
+
+/* Back button aligned to right */
+.back-btn {
+  display: inline-block;
+  align-self: flex-end;
+  margin-top: 50px;
+  padding: 15px 30px;
+  background: red;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: darkred;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .skill-card p, .edu-card h3 {
+    font-size: 1rem;
+  }
+
+  .skill-card i, .edu-card i {
+    font-size: 2.5rem;
+  }
+}
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  flex-grow: 1;
+}
+
+.exp-card {
+  background: #222;
+  padding: 30px 20px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.exp-card i {
+  font-size: 3rem;
+  color: red;
+}
+
+.exp-card h3 {
+  font-size: 1.7rem;
+}
+
+.exp-card p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.exp-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: red;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.exp-card a:hover {
+  background: darkred;
+}
+
+.exp-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+}
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.cert-card {
+  background: #1f1f1f;
+  border: 1px solid #333;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  text-align: center;
+  color: #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card i {
+  font-size: 40px;
+  color: #ff4c4c;
+  margin-bottom: 15px;
+}
+
+.cert-card h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cert-card p {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(255, 76, 76, 0.4);
+}
+/* Back button style */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: #ff3333;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #e60000;
+  box-shadow: 0 4px 18px rgba(255, 0, 0, 0.5);
+}
+/* Skills grid layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Skill card styling */
+.skill-card {
+  background: #222;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Icon size and color */
+.skill-card i {
+  font-size: 3rem;
+  color: red;
+}
+
+/* Skill text */
+.skill-card p {
+  font-size: 1.3rem;
+  margin: 0;
+}
+/* Hover effect */
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+}
+
+/* Back button styling */
+.back-btn {
+  display: inline-block;
+  margin: 50px auto 0;
+  padding: 15px 30px;
+  background: red;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: darkred;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+/* Responsive text scaling */
+@media (max-width: 500px) {
+  .skill-card p {
+    font-size: 1rem;
+  }
+
+  .skill-card i {
+    font-size: 2.5rem;
+  }
+}
+/* Section Title */
+#education h2 {
+  font-size: 3rem;
+  color: red;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#education h2 span {
+  color: white;
+}
+
+/* Education grid layout */
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Education card styling */
+.edu-card {
+  background: #222;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Icon style */
+.edu-card i {
+  font-size: 3rem;
+  color: red;
+}
+
+/* Card text styles */
+.edu-card h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.edu-card p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Map link style */
+.edu-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: red;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.edu-card a:hover {
+  background: darkred;
+}
+
+/* Hover animation */
+.edu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+}
+
+/* Back button styling (reuse previous) */
+.back-btn {
+  display: inline-block;
+  margin: 50px auto 0;
+  padding: 15px 30px;
+  background: red;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: darkred;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .edu-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .edu-card i {
+    font-size: 2.5rem;
+  }
+}
+.resume-card {
+  background: #1f1f1f;
+  border: 1px solid #333;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  text-align: center;
+  color: #eee;
+  max-width: 500px;
+  margin: 50px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-card i {
+  font-size: 50px;
+  color: #ff4c4c;
+  margin-bottom: 20px;
+}
+
+.resume-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.resume-card p {
+  font-size: 15px;
+  color: #ccc;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.download-btn {
+  display: inline-block;
+  background: #ff3333;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-btn i {
+  margin-right: 8px;
+}
+
+.download-btn:hover {
+  background: #e60000;
+  box-shadow: 0 4px 18px rgba(255, 0, 0, 0.5);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px 0;
+}
+
+.project-card {
+  background: #1f1f1f;
+  border: 1px solid #333;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  text-align: center;
+  color: #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.project-card i {
+  font-size: 50px;
+  color: #ff4c4c;
+  margin-bottom: 18px;
+}
+
+.project-card h3 {
+  font-size: 20px;
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+.project-card p {
+  font-size: 14.5px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.view-btn {
+  display: inline-block;
+  background: #ff3333;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-btn i {
+  margin-right: 6px;
+}
+
+.view-btn:hover {
+  background: #e60000;
+  box-shadow: 0 4px 18px rgba(255, 0, 0, 0.5);
+}
+.contact-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin: 15px 0;
+  color: #eee;
+}
+
+.social-icons a {
+  font-size: 28px;
+  color: #eee;
+  margin: 0 12px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #e63946;
+}
+
+.quote {
+  font-size: 18px;
+  font-style: italic;
+  color: #ccc;
+  margin-top: 30px;
+  line-height: 1.6;
+}
+
+.quote span {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #aaa;
+}
